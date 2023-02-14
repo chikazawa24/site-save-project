@@ -3,6 +3,7 @@
 namespace App\Services\Signin;
 
 use App\Models\User\Auth\UserAuthData;
+use Illuminate\Support\Facades\Auth;
 
 class IndexService{
     protected $_userAuthData;
@@ -18,7 +19,8 @@ class IndexService{
     public function checkData($param){
         $res = 0;
 
-        $res = $this->_userAuthData->getUserAuthDataByUserId($param);
+        $resData = $this->_userAuthData->getUserAuthDataByUserId($param);
+        dd($resData);
 
         return $res;
     }

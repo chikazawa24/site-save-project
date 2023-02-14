@@ -8,19 +8,18 @@ class UserAuthData
 {
     public function getUserAuthDataByUserId($param)
     {
-        $user_id = $param['user_id'];
-        $password = $param['password'];
+        $login_id = $param['login_id'];
+        $login_password = $param['login_password'];
 
         $sql = <<< End_of_sql
         SELECT *
         FROM user_data AS UD
         WHERE
-            UD.user_id = :userId
+            UD.login_id = :loginId
 End_of_sql;
 
         $bind = [
-            'userId' => $user_id,
-            'password' => $password
+            'loginId' => $login_id,
         ];
         return (array) DB::selectOne($sql, $bind);
     }
