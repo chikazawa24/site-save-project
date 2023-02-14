@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Signin\IndexService;
 use Illuminate\Http\Request;
 
 class SigninController extends Controller
@@ -10,11 +11,14 @@ class SigninController extends Controller
         return view('signin.index');
     }
 
-    public function auth(Request $request){
+    public function auth(Request $request, IndexService $service){
         $param = $request->all();
 
-        $login_id = $param['login_id'];
-        $password = $param['password'];
         // DBにデータを見に行く＋データが一致すればログイン状態に
+        $result = $service->checkData($param);
+
+        if(isset($result)){
+            return;
+        }
     }
 }
