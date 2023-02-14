@@ -1,0 +1,7 @@
+CREATE TABLE user_data (
+	apply_id INT NOT NULL AUTO_INCREMENT
+	,user_last_name VARCHAR (200) NOT NULL DEFAULT ''
+	,user_first_name VARCHAR (200) NOT NULL DEFAULT ''
+	,regist_datetime DATETIME NOT NULL DEFAULT '1900/1/1'
+	,update_datetime DATETIME NOT NULL DEFAULT '1900/1/1'
+ ) ROW_FORMAT=DYNAMIC ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
