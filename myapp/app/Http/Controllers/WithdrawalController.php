@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class InputController extends Controller
+class WithdrawalController extends Controller
 {
     public function index(){
-        return view('input.input');
+        return view('withdrawal.index');
     }
 }
