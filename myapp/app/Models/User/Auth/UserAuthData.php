@@ -6,10 +6,9 @@ use Illuminate\Support\Facades\DB;
 
 class UserAuthData
 {
-    public function getUserAuthDataByUserId($param)
+    public function getUserAuthDataByLoginId($param)
     {
         $login_id = $param['login_id'];
-        $login_password = $param['login_password'];
 
         $sql = <<< End_of_sql
         SELECT *

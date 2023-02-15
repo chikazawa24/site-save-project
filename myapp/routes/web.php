@@ -23,8 +23,8 @@ use App\Http\Controllers\ResumeController;
 Route::get('/top', [WelcomeController::class, 'index'])->name('user.top');// ホーム画面(各機能へのルートを用意)
 
 // キーワード
-Route::get('/keyword', [KeyWordController::class, 'index']);// キーワード一覧画面
-Route::get('/keyword/search', [KeyWordController::class, 'search']);// キーワード検索画面
+Route::get('/keyword', [KeyWordController::class, 'index'])->name('user.keyword');// キーワード一覧画面
+Route::get('/keyword/search', [KeyWordController::class, 'search'])->name('user.keyword.search');// キーワード検索画面
 
 // ユーザ情報の登録
 Route::get('/signup', [SignupController::class, 'index'])->name('user.signup');// 会員登録画面

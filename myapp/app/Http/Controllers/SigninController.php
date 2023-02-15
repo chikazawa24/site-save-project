@@ -17,8 +17,24 @@ class SigninController extends Controller
         // DBにデータを見に行く＋データが一致すればログイン状態に
         $result = $service->checkData($param);
 
+        // こけたときはindexにエラーメッセージとともにリダイレクトさせる
         if(isset($result)){
-            return;
+            // 正常系
+            if($result['res_flg'] == config('my.app.FLAG_ON')){
+                return redirect(route('user.keyword.search', [
+                    'result' => $result
+                ]));
+            }else{
+                // passwordミス
+                return redirect(route('user.signin', [
+                    'result' => $result
+                ]));
+            }
+        }else{
+            // データ取得失敗
+            return redirect(route('user.signin', [
+                'result' => $result
+            ]));
         }
     }
 }

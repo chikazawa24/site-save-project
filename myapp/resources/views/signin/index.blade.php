@@ -13,7 +13,8 @@
 <body>
     <div>
         <!--フォーム-->
-        <form name="mainForm" action="{{ route('user.top') }}" id="mainForm" method="get">
+        <form name="mainForm" action="{{ route('user.login.action') }}" id="mainForm" method="post">
+            @csrf
             <center>
                 <h1 class="contact-title">ログイン</h1>
                 <p>ID, Passwordご入力の上, 「認証」ボタンをクリックしてください.</p>
