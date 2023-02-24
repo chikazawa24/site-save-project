@@ -28,9 +28,11 @@ Route::get('/keyword/search', [KeyWordController::class, 'search'])->name('user.
 
 // ユーザ情報の登録
 Route::get('/signup', [SignupController::class, 'index'])->name('user.signup');// 会員登録画面
+Route::post('/signup/action', [SignupController::class, 'action'])->name('user.signup.action');
+Route::get('/signup/done', [SignupController::class, 'done'])->name('user.signup.done');
 
 // ログインTOP
-Route::get('/signin', [SigninController::class, 'index'])->name('user.signin');// 会員登録画面
+Route::get('/signin', [SigninController::class, 'index'])->name('user.signin');// ログイン画面
 Route::post('/signin/auth', [SigninController::class, 'auth'])->name('user.login.action');
 
 // ユーザ情報の編集

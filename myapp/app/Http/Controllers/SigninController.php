@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class SigninController extends Controller
 {
-    public function index(){
+    public function index(Request $request, IndexService $service){
         return view('signin.index');
     }
 
