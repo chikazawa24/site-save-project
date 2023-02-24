@@ -21,7 +21,7 @@ class SigninController extends Controller
         if(isset($result)){
             // 正常系
             if($result['res_flg'] == config('my.app.FLAG_ON')){
-                return redirect(route('user.keyword.search', [
+                return redirect(route('user.top', [
                     'result' => $result
                 ]));
             }else{

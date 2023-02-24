@@ -42,9 +42,34 @@ class IndexService{
         return $result;
     }
 
-    public function registUserData($param){
+    public function updateUserData($param){
         $result = config('my.app.FLAG_OFF');
 
+
+        if(isset($param)){
+            \DB::beginTransaction();
+            \Log::debug($param);
+            try{
+                $this->_userAuthData->updateUserData($param);
+                $result = config('my.app.FLAG_ON');
+                \DB::commit();
+            }catch (\Exception $e) {
+
+                \DB::rollBack();
+                \Log::debug('DB更新失敗');
+                return $result;
+            }
+        }
+
         return $result;
+    }
+
+    public function getUserdataById($param){
+        $res_data = [];
+        if(isset($param['login_id'])){
+            $res_data = $this->_userAuthData->getUserAuthDataByLoginId($param);
+        }
+
+        return $res_data;
     }
 }

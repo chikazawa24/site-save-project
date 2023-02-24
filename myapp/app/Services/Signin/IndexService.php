@@ -41,10 +41,4 @@ class IndexService{
         ];
         return $result;
     }
-
-    public function registUserData($param){
-        $result = config('my.app.FLAG_OFF');
-
-        return $result;
-    }
 }

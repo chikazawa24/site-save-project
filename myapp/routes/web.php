@@ -31,17 +31,20 @@ Route::get('/signup', [SignupController::class, 'index'])->name('user.signup');/
 Route::post('/signup/action', [SignupController::class, 'action'])->name('user.signup.action');
 Route::get('/signup/done', [SignupController::class, 'done'])->name('user.signup.done');
 
-// ログインTOP
+// ログイン
 Route::get('/signin', [SigninController::class, 'index'])->name('user.signin');// ログイン画面
 Route::post('/signin/auth', [SigninController::class, 'auth'])->name('user.login.action');
 
 // ユーザ情報の編集
-Route::get('/setting/resume', [ResumeController::class, 'index']);// 会員情報の変更画面
+Route::get('/setting/resume', [ResumeController::class, 'index'])->name('user.setting.resume');
+Route::post('/setting/resume/action', [ResumeController::class, 'action'])->name('user.setting.resume.action');// 会員情報の変更画面
+Route::get('/setting/resume/done', [ResumeController::class, 'done'])->name('user.setting.resume.done');
+
 // ユーザ情報の削除（退会）
 Route::get('/withdrawal', [WithdrawalController::class, 'index']);// 会員登録画面
 
 // ページの登録
-Route::get('/input', [InputController::class, 'index']);// ページの登録画面
+Route::get('/input', [InputController::class, 'index'])->name('user.input');// ページの登録画面
 
 // ページの詳細画面
 

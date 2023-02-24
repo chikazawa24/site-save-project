@@ -41,4 +41,30 @@ End_of_sql;
         return DB::table(self::TABLE)->insert($insert_param);
     }
 
+    public function updateUserData($param){
+        $now = Carbon::now();
+
+        $sql = <<< End_of_sql
+        UPDATE user_data
+        SET
+        login_id = :new_login_id
+        ,user_last_name = :user_last_name
+        ,user_first_name = :user_first_name
+        ,update_datetime = :update_datetime
+        ,login_password = :login_password
+        WHERE
+            login_id = :login_id
+End_of_sql;
+
+        $update_param = [
+                            'new_login_id' => $param['new_login_id'],
+                            'login_id' => $param['login_id'],
+                            'user_last_name' => $param['last_name'],
+                            'user_first_name' => $param['first_name'],
+                            'update_datetime' => $now,
+                            'login_password' => $param['login_password'],
+                        ];
+        
+        return DB::update($sql, $update_param);
+    }
 }
